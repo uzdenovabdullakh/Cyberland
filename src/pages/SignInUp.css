@@ -1,0 +1,68 @@
+.tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+}
+.tabs__nav {
+    display: flex;
+    flex-direction: row;
+    margin-left: 80px;
+}
+
+.tabs__btn li {
+    list-style: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.tabs__btn {
+    cursor: pointer;
+    /*background: rgba(255, 255, 255, 0.38);*/
+}
+
+/*.non{
+    background: none;
+}
+
+.non::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    margin-top: -10px;
+    margin-left: -100px;
+    position:fixed;
+    border-radius: 25px;
+    background: linear-gradient(#4A82EA 0%, #074bca 100%);
+}*/
+
+.tabs__btn_active {
+    background: rgba(255, 255, 255, 0.38);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tabs__btn_active::after{
+    content: "";
+    width: 40px;
+    height: 3px;
+    position:fixed;
+    border-radius: 25px;
+    background: linear-gradient(#4A82EA 0%, #074bca 100%); 
+}
+
+.signinup_main  {
+    background: #85B1F3;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.return {
+    all: unset; 
+}

@@ -1,0 +1,16 @@
+ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+li{
+    padding: 1rem 1.5rem; 
+}
+li a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #161616;
+}
