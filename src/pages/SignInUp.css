@@ -21,23 +21,8 @@
 
 .tabs__btn {
     cursor: pointer;
-    /*background: rgba(255, 255, 255, 0.38);*/
 }
 
-/*.non{
-    background: none;
-}
-
-.non::after {
-    content: "";
-    width: 40px;
-    height: 3px;
-    margin-top: -10px;
-    margin-left: -100px;
-    position:fixed;
-    border-radius: 25px;
-    background: linear-gradient(#4A82EA 0%, #074bca 100%);
-}*/
 
 .tabs__btn_active {
     background: rgba(255, 255, 255, 0.38);
