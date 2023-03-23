@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Hamburger.css"
 
-
 export default function Hamburger(){
+  //если пользователь авторизован то /account иначе /signinup и с
+  //если пользователь авторизован то на страницу размещения объявлений иначе /siginup
     return(
       <div className="navbar">
         <div className="nav-container">
@@ -14,9 +15,10 @@ export default function Hamburger(){
               <span className="line line3"></span>
             </div>  
               <div className="menu-items">
-                <li><Link to="/signinup">Вход\Регистрация</Link></li>
+                <li><Link to="/signinup">Личный кабинет</Link></li>
+                <li><Link to="/help">Помощь</Link></li>
+                <li><Link to="">Разместить объявление</Link></li>
               </div>
-           
         </div>
       </div>
     );

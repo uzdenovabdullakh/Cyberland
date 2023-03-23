@@ -1,7 +1,8 @@
 import React from "react";
-import Hamburger from "./Hamburger";
+import { Link } from "react-router-dom";
+import Avatar from "./Avatar";
+import Arrow from "./Arrow"
 import "./Header.css"
-
 
 
 export default class Header extends React.Component{
@@ -9,17 +10,16 @@ export default class Header extends React.Component{
         super(props);
         this.state = {};
     }
+    //при нажатии на аккаунт должен перенаправить в лк если авторизован, если нет то н страницу авторизации\регистрации
     render(){
         return(
             <header>
             <nav>
                 <ul>
-                    <li><a href="#">Контакты</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Техподдержка</a></li>
+                    <li><Link to="/"><Arrow /></Link></li>
+                    <li><Link to="/account"><span>Иванов Иван</span><Avatar /></Link></li>
                 </ul>
             </nav>
-            <Hamburger />
             </header>
         );
     }

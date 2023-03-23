@@ -16,6 +16,7 @@ export default function SignInUp(){
     });
     return (
         <main className="signinup_main">
+            <div className="wrapper__sign">
             <div className='modal'>
                 <div className="tabs">
                     <button className="return"><Link to="/"><Arrow /></Link></button>
@@ -32,6 +33,7 @@ export default function SignInUp(){
                     {isClicked ? <Modal />:<SigIn />}
                 </div>
             </div> 
+            </div>
         </main>
     );
     

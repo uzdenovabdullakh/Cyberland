@@ -2,7 +2,7 @@
   
   .navbar {
     width: 100%;
-    box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+    height: 60px;
   }
   
   .nav-container {
@@ -18,11 +18,6 @@
     list-style: none;
   }
   
-  .navbar .nav-container a {
-    padding: 0.7rem;
-  }
-  
-  
   
   .nav-container {
     display: block;
@@ -34,8 +29,8 @@
     display: block;
     height: 32px;
     width: 32px;
-    top: -50px;
-    right: 147px;
+    top: 22px;
+    right: 150px;
     z-index: 5;
     opacity: 0;
     cursor: pointer;
@@ -46,7 +41,7 @@
     height: 26px;
     width: 32px;
     position: absolute;
-    top: -40px;
+    top: 25px;
     right: 150px;
     z-index: 2;
     display: flex;
@@ -102,7 +97,7 @@
 
 
 .navbar .menu-items {
-  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  background: #FFFFFFD4;
   transform: translate(200%);
   display: flex;
   flex-direction: column;
@@ -118,9 +113,25 @@
   
 .navbar .menu-items {
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   position: fixed;
   right:160px;
+  margin-top: 80px;
 }
     
  
+.menu-items li {
+  background: #4A82EA;
+  border-radius: 13px;
+  padding: 1rem 1.5rem; 
+  line-height: 0 !important;
+  margin: 20px;
+}
+
+.menu-items li a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #FFFFFF;
+}

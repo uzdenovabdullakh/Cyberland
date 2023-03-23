@@ -17,6 +17,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
+    padding: 1rem 1.5rem; 
 }
 
 .tabs__btn {
@@ -50,4 +51,13 @@
 
 .return {
     all: unset; 
+}
+
+.wrapper__sign {
+    background: url('../assets/sign-min.png'), url('../assets/right_ellipse.png'), url('../assets/leftBottom_ellipse.png'), url('../assets/outter_ellipse.png'), url('../assets/inner_ellipse.png');
+    background-position:56.8em 220px, 77em 0px, left 450px, left -10px, left -10px;
+    background-repeat: no-repeat;
+    background-size: 35%, 12%, 15%, 20%, 15%;
+    background-blend-mode: overlay;
+    height: 100%;
 }

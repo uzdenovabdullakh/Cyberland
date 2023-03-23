@@ -1,11 +1,29 @@
 import React from "react";
-import Header from "../components/Header";
+import Category from "../components/Category"
 import "./MainPage.css"
+import ChoosedFilter from "../components/ChoosedFilter";
+import Hamburger from "../components/Hamburger";
 
 export default function MainPage(){
+        const [isClicked,setClicked]=React.useState(false);//для открытия фильтров
+        const [isDel, setDel] = React.useState(false) //коллбэк на нажатие удаление выбранного фильтра
+        const [value, setValue] = React.useState('')//для получения текста выбранного фильтра
+        const [isChoosed, setChoosed,] = React.useState(false) //коллбэк на нажатие на фильтр
+
+        const handleChoose = (value) => {
+          setValue(value)//устанвлиаем текст
+          setChoosed(true)//устанавливаем что фильтр выбран
+          setClicked(false)//устанавливаем чтобы скрылась панель с фильтрами
+          setDel(false)
+        } 
+        const handleDel = (value) => {
+          setDel(value)
+          //setChoosed(false)
+        }
+
         return(
             <main className="main_page">
-                <Header />
+                <Hamburger />
                 <div className="wrapper">
                     <div className="container">
                         <h1>
@@ -14,10 +32,12 @@ export default function MainPage(){
                         <form id="search_form" action="#" method="get">
                             <input name="search_input" type="text" id="search_input" required placeholder="..." maxLength="40"/>
                             <div className="icon"></div>
-                            <button className="category_filter"></button>
+                            <button className="category_filter" onClick={() => setClicked(!isClicked)}></button>
                             <button type="submit" id="search_button">Поиск</button>
                         </form>
+                        {isChoosed && !isDel ? <ChoosedFilter val={value} onDel={handleDel}/> : false}
                     </div>
+                    {isClicked ? <Category onChoose={handleChoose} /> : false}
                 </div>
             </main>
         );

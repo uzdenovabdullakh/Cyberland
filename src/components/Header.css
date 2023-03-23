@@ -1,16 +1,30 @@
-ul{
+
+header ul{
     margin:0;
     padding:0;
     list-style: none;
     display: flex;
     justify-content: center;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
-li{
+header ul li{
     padding: 1rem 1.5rem; 
+    margin-top: 20px;
+    margin-left: 80px;
 }
-li a {
+header ul li a {
     text-decoration: none;
     font-size: 1.5rem;
     font-family: 'Montserrat', sans-serif;
     color: #161616;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+header ul li a span {
+    margin-right: 230px;
 }
