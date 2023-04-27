@@ -13,7 +13,7 @@ header ul{
 }
 header ul li{
     padding: 1rem 1.5rem; 
-    margin-top: 20px;
+    margin-top: 45px;
     margin-left: 80px;
 }
 header ul li a {
@@ -26,5 +26,39 @@ header ul li a {
 }
 
 header ul li a span {
-    margin-right: 230px;
+    margin-right: 280px;
+    
+}
+
+.acc_button{
+    margin-top: 5px;
+}
+
+.call_button{
+    background: #08E839;
+    border-radius: 6px;
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+    margin-right: 5px;
+    padding: 15px 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.text_button{
+    background: #2825CA;
+    border-radius: 6px;
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 15px 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }

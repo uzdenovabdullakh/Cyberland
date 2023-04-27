@@ -17,7 +17,12 @@ export default class Header extends React.Component{
             <nav>
                 <ul>
                     <li><Link to="/"><Arrow /></Link></li>
-                    <li><Link to="/account"><span>Иванов Иван</span><Avatar /></Link></li>
+                    <li><Link to="/account"><span>Иванов Иван</span><Avatar /></Link>
+                    <div className="acc_button">
+                        <button className="call_button">Позвонить</button>
+                        <button className="text_button">Написать</button>
+                    </div>
+                    </li>
                 </ul>
             </nav>
             </header>
