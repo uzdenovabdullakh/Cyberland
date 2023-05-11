@@ -96,6 +96,7 @@
     height: 25px;
     outline: none;
     border: 0;
+    cursor: pointer;
 }
 
 #search_button:hover{

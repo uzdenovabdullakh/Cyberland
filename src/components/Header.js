@@ -10,20 +10,30 @@ export default class Header extends React.Component{
         super(props);
         this.state = {};
     }
-    //при нажатии на аккаунт должен перенаправить в лк если авторизован, если нет то н страницу авторизации\регистрации
+    //
     render(){
         return(
             <header>
             <nav>
-                <ul>
-                    <li><Link to="/"><Arrow /></Link></li>
-                    <li><Link to="/account"><span>Иванов Иван</span><Avatar /></Link>
-                    <div className="acc_button">
-                        <button className="call_button">Позвонить</button>
-                        <button className="text_button">Написать</button>
+            <div className="arrow_block"><Link to="/"><Arrow /></Link></div>
+                <div className="account_block">
+                    <div className="account__block">
+                        <ul className="account_avatar">
+                            <Link to="/account"><span>Иванов Иван</span><Avatar /></Link> 
+                            <li className="town"><span> г. Таганрог</span></li>
+                        </ul>
+                        <ul className="about_user">
+                            <li className="special"> Специализация: <br /> <span>Backend</span></li>
+                            <li className="prog_langs">Языки программирования:<br /> <span> node.js, Python</span></li>
+                            <li className="account_email">ivanovivan@mail.ru</li>
+                        </ul>
+                        {/* если авторизован появляются надписи и кнопки, запрос на сервер за данными*/}
+                        <div className="acc_button">
+                            <button className="call_button">Позвонить</button>
+                            <button className="text_button">Написать</button>
+                        </div>
                     </div>
-                    </li>
-                </ul>
+                </div>
             </nav>
             </header>
         );

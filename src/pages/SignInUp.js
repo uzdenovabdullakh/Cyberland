@@ -1,11 +1,12 @@
 //использовать компоненты modal и signin
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
-import Modal from "../components/Modal/Modal";
+import Registration from "../components/Modal/Registration";
 import SigIn from "../components/Modal/SignIn"
 import Arrow from "../components/Arrow"
-import ItcTabs from "../js/ItcTabs"
+import ItcTabs from "../utils/js/ItcTabs"
 import './SignInUp.css'
+import {instance} from "../utils/axios/axios";
 
 
 
@@ -14,6 +15,34 @@ export default function SignInUp(){
     React.useEffect(() => {
         new ItcTabs('.tabs');
     });
+
+    const [phone, setPhone] = useState('')//коллбэк функции
+    const [password, setPassword] = useState('')
+    const [repeatPassword, setRepeatPassword] = useState('')
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        //регистрация
+        if (isClicked){
+            const userData = {
+                phone,
+                password
+            }
+            //const newUser = await instance.post(url,userData)
+            console.log("registr")
+        }
+        //авторизация
+        else {
+            const userData = {
+                phone,
+                password
+            }
+            //const user = await instance.post(url,userData)
+            console.log("login")
+        }
+    }
+
+
     return (
         <main className="signinup_main">
             <div className="wrapper__sign">
@@ -30,7 +59,10 @@ export default function SignInUp(){
                     </nav>
                 </div>
                 <div className='modal-body'>
-                    {isClicked ? <Modal />:<SigIn />}
+                    <form action="#" onSubmit={handleSubmit}>
+                        {isClicked ? <Registration setPhone={setPhone} setPassword={setPassword} setRepeatPassword={setRepeatPassword}/>:
+                                    <SigIn setPhone={setPhone} setPassword={setPassword}/>}
+                     </form>
                 </div>
             </div> 
             </div>

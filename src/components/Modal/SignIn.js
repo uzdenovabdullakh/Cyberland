@@ -1,17 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
 import './Modal.css'
 
-export default function Modal (){
+function SignIn (props){
+        const {setPhone,setPassword} = props
         return(
             <React.Fragment>
                         <div className="tabs__pane tabs__pane_show">
                             <h1>Вход</h1>
                             <div className="_login">
-                                <form acrion="#" name="login" id="login_form" method="post">
-                                    <input className="inputs" type="tel" required autoComplete="on" placeholder="Введите номер телефона" minLength="11" pattern="\d{11}"></input>
-                                    <input className="inputs" type="password" required autoComplete="on" placeholder="Введите пароль" minLength="8" maxLength="40"></input>
+                                <div className="login_form">
+                                    <input className="inputs" type="tel" required autoComplete="on" placeholder="Введите номер телефона" minLength="11" pattern="\d{11}" onChange={(e)=>setPhone(e.target.value)}></input>
+                                    <input className="inputs" type="password" required autoComplete="on" placeholder="Введите пароль" minLength="8" maxLength="40" onChange={(e)=>setPassword(e.target.value)}></input>
                                     <button className="submit_btn" type="submit">Войти</button>
-                                </form>
+                                </div>
                             </div>
                         </div>
             </React.Fragment>
@@ -19,6 +21,13 @@ export default function Modal (){
     //}
 }
 
+
+SignIn.propTypes = {
+    setPhone: PropTypes.func.isRequired,
+    setPassword: PropTypes.func.isRequired,
+}
+
+export default SignIn;
 /*
 
 <div class="registration">

@@ -15,7 +15,7 @@ export default function Hamburger(){
               <span className="line line3"></span>
             </div>  
               <div className="menu-items">
-                <li><Link to="/signinup">Личный кабинет</Link></li>
+                <li><Link to="/account">Личный кабинет</Link></li>
                 <li><Link to="/help">Помощь</Link></li>
                 <li><Link to="">Разместить объявление</Link></li>
               </div>

@@ -1,22 +1,21 @@
 
-header ul{
+.account_block {
     margin:0;
     padding:0;
-    list-style: none;
     display: flex;
-    justify-content: center;
-    justify-content: space-between;
-    height: 80px;
+    height: 170px;
     align-items: center;
     flex-wrap: nowrap;
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
-header ul li{
-    padding: 1rem 1.5rem; 
-    margin-top: 45px;
+.account__block {
+    padding: 0rem 1.5rem; 
     margin-left: 80px;
+    font-family: 'Montserrat', sans-serif;
+    color: #161616;
+    font-weight: 600;
 }
-header ul li a {
+.account__block a {
     text-decoration: none;
     font-size: 1.5rem;
     font-family: 'Montserrat', sans-serif;
@@ -25,9 +24,56 @@ header ul li a {
     text-decoration: underline;
 }
 
-header ul li a span {
-    margin-right: 280px;
+.account__block a span {
+    margin-right: 230px;
     
+}
+
+.town {
+    width: 180px;
+    text-align: right;
+    line-height: 1.5;
+}
+
+.account_email{
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.5;
+}
+
+.special{
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.special span{
+    color: #FFFFFF;
+}
+
+.prog_langs{
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.prog_langs span{
+    color: #FFFFFF;
+}
+
+.about_user{
+    list-style: none;
+    text-align: left;
+    padding: 0;
+}
+
+.account_avatar{
+    list-style: none;
+    margin: 0;
+}
+
+
+.arrow_block {
+    padding: 3rem 1.5rem 0;
+    margin-left: 80px;
 }
 
 .acc_button{
