@@ -5,13 +5,8 @@ import Arrow from "./Arrow"
 import "./Header.css"
 
 
-export default class Header extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-    //
-    render(){
+function Header () {
+        
         return(
             <header>
             <nav>
@@ -28,14 +23,17 @@ export default class Header extends React.Component{
                             <li className="account_email">ivanovivan@mail.ru</li>
                         </ul>
                         {/* если авторизован появляются надписи и кнопки, запрос на сервер за данными*/}
-                        <div className="acc_button">
+                       {/* <div className="acc_button">
                             <button className="call_button">Позвонить</button>
                             <button className="text_button">Написать</button>
-                        </div>
+                        </div>*/} 
+                        
                     </div>
                 </div>
             </nav>
             </header>
         );
-    }
 }
+
+
+export default Header;

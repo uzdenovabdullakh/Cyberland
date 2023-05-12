@@ -21,3 +21,8 @@
     font-family: 'Montserrat', sans-serif;
     color: #131313;
 }
+
+.pass_button{
+    text-align: right;
+    margin-right: 50px;
+}

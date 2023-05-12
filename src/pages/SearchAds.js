@@ -52,7 +52,7 @@ export default function (){
                     Объявления по вашему запросу:
                     </h1>
                 </div>
-                {isClicked?<Category top="265px" left="140px" zIndex="2" onChoose={handleChoose}/> : false}
+                {isClicked?<Category top="305px" left="140px" zIndex="2" onChoose={handleChoose}/> : false}
                 <div className="ads__block">
                     <div className="cards">
                         <div className="card">

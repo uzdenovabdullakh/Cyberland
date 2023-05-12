@@ -1,0 +1,26 @@
+
+.nonSelectButton{
+    background: #2825CA;
+    border-radius: 6px;
+    padding: 15px 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.SelectButton{
+    background: #0a0a3a;
+    border-radius: 6px;
+    padding: 15px 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    color: #FFFFFF;
+}

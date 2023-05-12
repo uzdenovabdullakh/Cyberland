@@ -3,6 +3,7 @@ import Category from "../components/Category"
 import "./MainPage.css"
 import ChoosedFilter from "../components/ChoosedFilter";
 import Hamburger from "../components/Hamburger";
+import { useNavigate } from "react-router-dom";
 
 
 export default function MainPage(){
@@ -10,6 +11,7 @@ export default function MainPage(){
         const [isDel, setDel] = React.useState(false) //коллбэк на нажатие удаления выбранного фильтра
         const [value, setValue] = React.useState('')//для получения текста выбранного фильтра
         const [isChoosed, setChoosed,] = React.useState(false) //коллбэк на нажатие на фильтр
+        const navigate = useNavigate()
 
         const handleChoose = (value) => {
           setValue(value)//устанвлиаем текст
@@ -31,10 +33,9 @@ export default function MainPage(){
         const [searchText, setSearchText] = React.useState('')
         const handleSearch = async (e) => {
             e.preventDefault();
-            
+            navigate('/search')
             console.log(searchText)
             console.log(value);
-           //{<Navigate to="/search" />}
         }
 
         return(

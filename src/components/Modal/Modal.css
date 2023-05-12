@@ -12,7 +12,7 @@
 }
 .modal-body{
     padding: 2rem;
-    width: 500px;
+    width: 640px;
     border-radius: 13px;
     background: rgba(255, 255, 255, 0.38);
     height: 290px;
@@ -28,9 +28,10 @@
     margin-top:0;
 }
 .regist_form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: .5em;
+   
 }
 .login_form {
     display: flex;
@@ -68,32 +69,78 @@
     cursor: pointer;
 }
 
-/*
-.close_btn {
-    background: #4A82EA;
-    border-radius: 4px;
-    color: #fff;
-    border: none;
-    font-size: 30px;
-    padding: 4px 13px;
+.submit_btn_choosing{
+    padding: 10px 20px;
 }
 
-.open_btn {
-    background: #274FDE;
-    border-radius: 25px;
-    outline: none;
-    border: 0;
+._regist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.choosing_inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.choosing_inputs label {
+    margin-bottom: 10px;
+}
+
+
+.modal-pass{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+    background-color: black;
+    opacity: 0.9;
+
+}
+
+.modal-body-pass {
+    padding: 2rem;
+    width: 400px;
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 1);
+    height: 290px;
+    z-index: 3;
+}
+
+.modal-body-pass h1 {
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 600;
-    font-size: 1.2rem;
-    color:#FFFFFF;
-    padding: 0.7rem;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top:0;
 }
 
-.open_btn:hover {
-    font-weight: bolder;
+.inputs_change_pass{
+    background: #d9d5d5;
 }
 
-*/
+.change_block{
+    padding: 1rem 3rem;
+}
 
+.change_btn{
+    margin-left: 45px;
+}
+
+.close_modal{
+    cursor: pointer;
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-end;
+}

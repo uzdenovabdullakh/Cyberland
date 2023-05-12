@@ -6,34 +6,31 @@ import Help from './pages/Help';
 import NotFoundPage from './pages/NotFoundPage';
 import SearchAds from './pages/SearchAds';
 import Account from './pages/Account';
-import Context from './utils/js/Context';
 import PrivateRoute from './utils/router/privateRoute';
-
+import ChooseRole from './pages/ChooseRole';
+import { Provider } from 'react-redux';
+import store from "./utils/store"
 
 
 
 function App() {
 
-  const [buttons, setButtons]=React.useState([])
-
-  function removeFilter(id){
-    setButtons(buttons.filter(button=>button.id!==id))
-  }
-  
   return (
     <>
-    <Context.Provider value={{removeFilter}}>
-      <Routes>
-        <Route element={<PrivateRoute />}>
-          <Route path="/account" element={<Account />} />
-        </Route>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/signinup" element={<SignInUp />} />
-        <Route path="/help" element={<Help />} />
-        <Route path="/search" element={<SearchAds />} />
-        <Route path="*" element={<NotFoundPage />}/>
-      </Routes>
-      </Context.Provider>
+    <Provider store={store}>
+        <Routes>
+          <Route element={<PrivateRoute />}>
+            <Route path="/account" element={<Account />} />
+            {/*только тут после регистрации чтобы только после регистрации можно было переходить на него */}
+            <Route path="/chooseyourdestiny" element={<ChooseRole />} /> 
+          </Route>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/signinup" element={<SignInUp />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/search" element={<SearchAds />} />
+          <Route path="*" element={<NotFoundPage />}/>
+        </Routes>
+      </Provider>
     </>
   );
 }

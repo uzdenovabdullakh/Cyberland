@@ -1,12 +1,14 @@
 //использовать компоненты modal и signin
 import React,{useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Registration from "../components/Modal/Registration";
 import SigIn from "../components/Modal/SignIn"
 import Arrow from "../components/Arrow"
 import ItcTabs from "../utils/js/ItcTabs"
 import './SignInUp.css'
 import {instance} from "../utils/axios/axios";
+import { useDispatch } from "react-redux";
+import { login } from "../utils/store/slice/auth";
 
 
 
@@ -16,28 +18,41 @@ export default function SignInUp(){
         new ItcTabs('.tabs');
     });
 
-    const [phone, setPhone] = useState('')//коллбэк функции
+    const [email, setEmail] = useState('')//коллбэк функции
+    const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
+    const [secondName, setSecondName] = useState('')
+    const [name, setName] = useState('')
+    const navigate = useNavigate();
+    const dispatch = useDispatch()
     
     const handleSubmit = async (e) => {
         e.preventDefault()
         //регистрация
         if (isClicked){
             const userData = {
+                name,
+                secondName,
                 phone,
+                email,
                 password
             }
-            //const newUser = await instance.post(url,userData)
+            //const newUser = await instance.post('/api/auth/registration',userData)
+            navigate("/chooseyourdestiny")
+           // console.log(newUser.data)
+            
             console.log("registr")
         }
         //авторизация
         else {
             const userData = {
-                phone,
+                email,
                 password
             }
-            //const user = await instance.post(url,userData)
+            const user = await instance.post('/api/auth/login',userData)
+            dispatch(login(user.data))
+            console.log(user.data)
             console.log("login")
         }
     }
@@ -60,8 +75,8 @@ export default function SignInUp(){
                 </div>
                 <div className='modal-body'>
                     <form action="#" onSubmit={handleSubmit}>
-                        {isClicked ? <Registration setPhone={setPhone} setPassword={setPassword} setRepeatPassword={setRepeatPassword}/>:
-                                    <SigIn setPhone={setPhone} setPassword={setPassword}/>}
+                        {isClicked ? <Registration setSecondName={setSecondName} setName={setName} setPhone={setPhone} setEmail={setEmail}  setPassword={setPassword} setRepeatPassword={setRepeatPassword}/>:
+                                    <SigIn setEmail={setEmail} setPassword={setPassword}/>}
                      </form>
                 </div>
             </div> 
