@@ -2,6 +2,13 @@ import React from "react";
 import ExecutorForm from "../components/Modal/ExecutorForm";
 import CustomerForm from "../components/Modal/CustomerForm";
 import './ChooseRole.css'
+import { useNavigate } from "react-router-dom";
+//import { useDispatch } from "react-redux";
+//import {setExecutor, setCustomer} from '../utils/store/slices/userSlice'
+import {api} from "../utils/axios/interceptors"
+
+
+
 const container = {
     height: '100vh',
     background:'#85B1F3',
@@ -32,6 +39,8 @@ const buttonBlock = {
 export default function ChooseRole(){
     const [isCustomer,setClickedCustomer]=React.useState(false)
     const [isExecutor,setClickedExecutor]=React.useState(false)
+    const navigate = useNavigate()
+    //const dispatch = useDispatch()
 
     const handleCustomer = (e) =>{
         if (isCustomer){
@@ -53,28 +62,57 @@ export default function ChooseRole(){
         
     }
 
-    const [exeperience, setExeperience] = React.useState('')//коллбэк функции
+    const [experience, setExeperience] = React.useState('')//коллбэк функции
     const [technologies, setTechnologies] = React.useState('')
     const [employment, setEmployment] = React.useState('')
     const handleSubmit = async (e) => {
         e.preventDefault()
         //регистрация
         if (isCustomer){
-            const userCustomerData = {
-                employment,
+            try {
+                const userId = sessionStorage.getItem('id')
+                const userCustomerData = {
+                    userId,
+                    employment,
+                }
+                const userCustomer = await api.post('/api/customers/', userCustomerData)
+                sessionStorage.setItem('customerId',userCustomer.data.id)
+                sessionStorage.setItem('employment',userCustomerData.employment)
+                navigate("/signinup")
+                /*await dispatch(setCustomer({
+                    employment:  userCustomerData.employment,
+                }
+                ))*/
+            } catch(e){
+                console.log(e.message)
+                return e
             }
-            //const newUser = await instance.post('/api/auth/registration',userData)
-            //navigate("/")
-           // console.log(newUser.data)
-            
-            console.log("registr2customer")
         }
         else if (isExecutor){
-            const userExecutorData = {
-                technologies,
-                exeperience,
+            try {
+                const userId = sessionStorage.getItem('id')
+                const userExecutorData = {
+                    userId,
+                    technologies,
+                    experience,
+                }
+                const userExecutor = await api.post('/api/executors/', userExecutorData)
+                sessionStorage.setItem('executorId',userExecutor.data.id)
+                sessionStorage.setItem('technologies',userExecutorData.technologies)
+                sessionStorage.setItem('experience',userExecutorData.experience)
+                sessionStorage.setItem('cv',userExecutor.data.cv)
+                navigate("/signinup")
+                /*
+                await dispatch(setExecutor({
+                    technologies:  userExecutorData.technologies,
+                    exeperience:  userExecutorData.experience,
+                }
+                ))
+                 */
+            } catch(e){
+                console.log(e.message)
+                return e
             }
-            console.log("registr2executor")
         }
     }
 

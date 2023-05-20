@@ -3,7 +3,9 @@ import Category from "../components/Category"
 import "./MainPage.css"
 import ChoosedFilter from "../components/ChoosedFilter";
 import Hamburger from "../components/Hamburger";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import {api} from '../utils/axios/interceptors'
+import SearchComponent from "../components/SearchComponent";
 
 
 export default function MainPage(){
@@ -11,6 +13,7 @@ export default function MainPage(){
         const [isDel, setDel] = React.useState(false) //коллбэк на нажатие удаления выбранного фильтра
         const [value, setValue] = React.useState('')//для получения текста выбранного фильтра
         const [isChoosed, setChoosed,] = React.useState(false) //коллбэк на нажатие на фильтр
+        const [searchText, setSearchText] = React.useState('')
         const navigate = useNavigate()
 
         const handleChoose = (value) => {
@@ -30,12 +33,12 @@ export default function MainPage(){
         текст должен передаться на страницу поиска 
         также должны передаваться выбранные фильтры
         */
-        const [searchText, setSearchText] = React.useState('')
-        const handleSearch = async (e) => {
+        
+        const handleSearch = (e) => {
             e.preventDefault();
             navigate('/search')
-            console.log(searchText)
-            console.log(value);
+            sessionStorage.setItem('searchText',searchText)
+            sessionStorage.setItem('type',value)
         }
 
         return(
@@ -47,10 +50,7 @@ export default function MainPage(){
                             <span>Найти</span> <br /> место в IT
                         </h1>
                         <form id="search_form" action="#" onSubmit={handleSearch}>
-                            <input name="search_input" type="text" id="search_input" required placeholder="..." maxLength="40" onChange={(e)=>setSearchText(e.target.value)}/>
-                            <div className="icon"></div>
-                            <input type="button" className="category_filter" onClick={() => setClicked(!isClicked)}></input>
-                            <button type="submit" id="search_button">Поиск</button>
+                            <SearchComponent setClicked={setClicked} isClicked={isClicked} setSearchText={setSearchText}></SearchComponent>
                         </form>
                         {isChoosed && !isDel ? <ChoosedFilter val={value} onDel={handleDel}/> : false}
                     </div>

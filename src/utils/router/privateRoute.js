@@ -1,10 +1,10 @@
 import React from "react";
 import {Navigate, Outlet} from "react-router-dom"
+import { useAuth } from "../hooks/useAuth";
 const PrivateRoute = () => {
-    const auth = true;//если ложь то перенаправляет на страницу регистрации
-    return auth ? <Outlet /> : <Navigate to="/signinup" />;
-
-    {/*добавить сюда chooserole, чтобы только после регистрации можно было переходить на него */}
+    const {isAuth} = useAuth();//если ложь то перенаправляет на страницу регистрации
+    
+    return isAuth ? <Outlet /> : <Navigate to="/signinup" />;
 };
 
 export default PrivateRoute;

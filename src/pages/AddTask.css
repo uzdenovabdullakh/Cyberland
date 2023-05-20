@@ -1,0 +1,117 @@
+.add_task_main  {
+    background: #85B1F3;
+    width: 100%;
+    height: 100vh;
+}
+
+.add_task__sign {
+    background: url('../assets/sign-min.png'), url('../assets/right_ellipse.png'), url('../assets/leftBottom_ellipse.png'), url('../assets/outter_ellipse.png'), url('../assets/inner_ellipse.png');
+    background-position:56.8em 220px, 77em 0px, left 450px, left -10px, left -10px;
+    background-repeat: no-repeat;
+    background-size: 35%, 12%, 15%, 20%, 15%;
+    background-blend-mode: overlay;
+    height: 100%;
+}
+
+.task__photo{
+    background: url('../assets/AddPhoto.svg');
+    background-repeat: no-repeat;
+    background-size: 80%, 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.photo_file{
+    height: 160px;
+    width: 250px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.task__photo label{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 65px;
+}
+
+.task__body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5em;
+}
+
+.task__inputs{
+    background: #FFFFFF;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    padding: 4px 40px;;
+    margin-bottom: 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.68);
+    text-align: center;
+    width: 244px;
+}
+
+.adding_button{
+    background: #08E839;
+    margin-right: 35px;
+}
+
+.cancel_button{
+    background: #e81708;
+}
+
+.task__buttons button{
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    margin-bottom: 20px;
+    padding: 10px 25px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+}
+
+.description__text{
+    background: #FFFFFF;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    margin-bottom: 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.68);
+    text-align: left;
+    width: 320px;
+    height: 60px;
+    resize: none;
+}
+
+.modal-body-task{
+    height: 320px;
+}
+
+#out_image{
+    height: 163px;
+    width: 250px;
+    position: fixed;
+    z-index: 0;
+}
+
+.task__category{
+    
+}

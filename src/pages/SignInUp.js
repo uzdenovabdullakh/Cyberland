@@ -7,8 +7,10 @@ import Arrow from "../components/Arrow"
 import ItcTabs from "../utils/js/ItcTabs"
 import './SignInUp.css'
 import {instance} from "../utils/axios/axios";
-import { useDispatch } from "react-redux";
-import { login } from "../utils/store/slice/auth";
+//import { useDispatch } from "react-redux";
+import {api} from "../utils/axios/interceptors";
+//import {setUser} from '../utils/store/slices/userSlice'
+import { AppErrors } from "../utils/errors";
 
 
 
@@ -24,36 +26,90 @@ export default function SignInUp(){
     const [repeatPassword, setRepeatPassword] = useState('')
     const [secondName, setSecondName] = useState('')
     const [name, setName] = useState('')
-    const navigate = useNavigate();
-    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    //const dispatch = useDispatch()
     
     const handleSubmit = async (e) => {
         e.preventDefault()
         //регистрация
         if (isClicked){
-            const userData = {
-                name,
-                secondName,
-                phone,
-                email,
-                password
+            if (password===repeatPassword){
+                try {
+                    const userData = {
+                        email,
+                        password,
+                        name,
+                        secondName,
+                        phone,
+                    }   
+                    const newUser = await instance.post('/api/auth/registration',userData)
+                    sessionStorage.setItem('id',newUser.data.id)
+                    sessionStorage.setItem('email', userData.email)
+                    sessionStorage.setItem('name', userData.name)
+                    sessionStorage.setItem('secondName', userData.secondName)
+                    sessionStorage.setItem('phone', userData.phone)
+                    navigate("/chooseyourdestiny")
+                    //await dispatch(setUser())
+                    /*await dispatch(setUser({
+                        email: userData.email,
+                        id: newUser.data.id,
+                        name:userData.name,
+                        secondName: userData.secondName,
+                        phone: userData.phone,
+                    }
+                    ))*/
+                } catch(e){
+                    console.log(e.message)
+                    return e
+                }
             }
-            //const newUser = await instance.post('/api/auth/registration',userData)
-            navigate("/chooseyourdestiny")
-           // console.log(newUser.data)
-            
-            console.log("registr")
+            else {
+                throw new Error(AppErrors.PasswordDoNotMatch)
+            }
         }
         //авторизация
         else {
-            const userData = {
-                email,
-                password
+            try {
+                const userData = {
+                    email,
+                    password
+                }
+                const user = await instance.post('/api/auth/login',userData)
+                sessionStorage.setItem('token',user.data.access)
+                const allUsers = await api.get('api/users/')//сюда должен прйти еще кастомер или экзекьютор айди нужно будет сделать запрос на api/customers или екзекюторс
+                const ourUser = allUsers.data.filter((user) => user.email===`${userData.email}`);
+                sessionStorage.setItem('id',ourUser[0].id)
+                sessionStorage.setItem('email', userData.email)
+                sessionStorage.setItem('name', ourUser[0].name)
+                sessionStorage.setItem('secondName', ourUser[0].secondName)
+                sessionStorage.setItem('phone', ourUser[0].phone)
+
+                const cust = ourUser[0].customer;
+                const exec = ourUser[0].executor;
+                if (cust){
+                    sessionStorage.setItem('customerId',cust.id)
+                    sessionStorage.setItem('employment',cust.employment)
+                }
+                else {
+                    sessionStorage.setItem('executorId',exec.id)
+                    sessionStorage.setItem('technologies',exec.technologies)
+                    sessionStorage.setItem('experience',exec.experience)
+                    sessionStorage.setItem('cv',exec.cv)
+                }
+                navigate('/')
+                /*await dispatch(setUser({
+                    email: userData.email,
+                    token: user.data.access,
+                    id: ourUser[0].id,
+                    name: ourUser[0].name,
+                    secondName: ourUser[0].secondName,
+                    phone: ourUser[0].phone,
+                }
+                ))*/
+            } catch(e){
+                console.log(e.message)
+                return e
             }
-            const user = await instance.post('/api/auth/login',userData)
-            dispatch(login(user.data))
-            console.log(user.data)
-            console.log("login")
         }
     }
 
@@ -76,7 +132,7 @@ export default function SignInUp(){
                 <div className='modal-body'>
                     <form action="#" onSubmit={handleSubmit}>
                         {isClicked ? <Registration setSecondName={setSecondName} setName={setName} setPhone={setPhone} setEmail={setEmail}  setPassword={setPassword} setRepeatPassword={setRepeatPassword}/>:
-                                    <SigIn setEmail={setEmail} setPassword={setPassword}/>}
+                                     <SigIn setEmail={setEmail} setPassword={setPassword}/>}
                      </form>
                 </div>
             </div> 

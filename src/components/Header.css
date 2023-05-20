@@ -35,29 +35,7 @@
     line-height: 1.5;
 }
 
-.account_email{
-    font-weight: 700;
-    color: #FFFFFF;
-    line-height: 1.5;
-}
 
-.special{
-    line-height: 1.5;
-    font-weight: 700;
-}
-
-.special span{
-    color: #FFFFFF;
-}
-
-.prog_langs{
-    line-height: 1.5;
-    font-weight: 700;
-}
-
-.prog_langs span{
-    color: #FFFFFF;
-}
 
 .about_user{
     list-style: none;
@@ -76,35 +54,108 @@
     margin-left: 80px;
 }
 
-.acc_button{
-    margin-top: 5px;
+
+.about_user li{
+    line-height: 1.5;
+    font-weight: 700;
 }
 
-.call_button{
-    background: #08E839;
-    border-radius: 6px;
-    font-family: 'Montserrat Subrayada', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
+.about_user li span{
     color: #FFFFFF;
-    margin-right: 5px;
-    padding: 15px 10px;
-    outline: none;
-    border: none;
-    cursor: pointer;
 }
 
-.text_button{
-    background: #2825CA;
-    border-radius: 6px;
-    font-family: 'Montserrat Subrayada', sans-serif;
-    font-style: normal;
+
+.account_email{
     font-weight: 700;
-    font-size: 18px;
     color: #FFFFFF;
-    padding: 15px 10px;
-    outline: none;
-    border: none;
-    cursor: pointer;
+    line-height: 1.5;
+}
+
+
+
+.input-file {
+	position: relative;
+	display: inline-block;
+    margin-top: 10px;
+}
+.input-file span {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 14px;
+	vertical-align: middle;
+	color: rgb(255 255 255);
+	text-align: center;
+	border-radius: 4px;
+	background-color: #419152;
+	line-height: 22px;
+	height: 40px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+	transition: background-color 0.2s;
+}
+.input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+ 
+/* Focus */
+.input-file input[type=file]:focus + span {
+	box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+ 
+/* Hover/active */
+.input-file:hover span {
+	background-color: #59be6e;
+}
+.input-file:active span {
+	background-color: #2E703A;
+}
+ 
+
+.input-file-list {
+	padding: 10px 0;
+    font-size: 16px !important;
+    visibility: hidden;
+    text-decoration: none !important;
+}
+
+
+
+.delete__resume{
+    position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 14px;
+	vertical-align: middle;
+	color: rgb(255 255 255);
+	text-align: center;
+	border-radius: 4px;
+	background-color: #419152;
+	line-height: 22px;
+	height: 40px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+    margin-top: 10px;
+	transition: background-color 0.2s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.resume__form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

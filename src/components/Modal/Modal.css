@@ -122,7 +122,7 @@
     font-style: normal;
     font-size: 28px;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     margin-top:0;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .change_block{
-    padding: 1rem 3rem;
+    padding: 0rem 3rem;
 }
 
 .change_btn{
@@ -143,4 +143,48 @@
     font-size: 25px;
     display: flex;
     justify-content: flex-end;
+}
+
+
+.modal-req {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+    background-color: black;
+    opacity: 0.9;
+
+}
+
+.modal-body-req {
+    padding: 2rem;
+    width: 400px;
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 1);
+    height: 290px;
+    z-index: 3;
+}
+
+.modal-body-req-h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 15px;
+    margin:0 !important;
+}
+
+.req_list{
+
+}
+
+.executor_name_link{
+    all: unset;
+    cursor: pointer;
 }
