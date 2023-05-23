@@ -10,4 +10,4 @@ export default function SearchComponent(props){
         <button type="submit" id="search_button">Поиск</button>
         </Fragment>
     );
-}
+}   

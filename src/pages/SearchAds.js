@@ -77,10 +77,10 @@ export default function SearchAds(){
         const {customerId} = UserDataHook();
         const {isAuth} = useAuth();
         
-        const cards = tasksArr.map((item)=>{
+       const cards = tasksArr.map((item)=>{
             return (
             <SearchCards key={item.id} customerTaskId={item.customer.id} customerName={item.customer.user.name + ' ' + item.customer.user.secondName} taskId={item.id} title={item.name} description={item.description} cost={item.cost} imgSrc={item.img} category={item.type}></SearchCards>
-        );
+            );
         })
 
     return (

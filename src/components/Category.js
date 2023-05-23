@@ -25,10 +25,10 @@ function Category(props){
                     <li className="filter__button" role="button" onClick={handleChoose}>Backend</li>
                     <li className="filter__button" role="button" onClick={handleChoose}>Frontend</li>
                     <li className="filter__button" role="button" onClick={handleChoose}>SEO-специалист</li>
-                    <li className="filter__button" role="button">Smm-специалист</li>
-                    <li className="filter__button" role="button">Копирайт</li>
-                    <li className="filter__button" role="button">Верстка</li>
-                    <li className="filter__button" role="button">Модератор</li>
+                    <li className="filter__button" role="button" onClick={handleChoose}>Full-Stack</li>
+                    <li className="filter__button" role="button" onClick={handleChoose}>Копирайт</li>
+                    <li className="filter__button" role="button" onClick={handleChoose}>Верстка</li>
+                    <li className="filter__button" role="button" onClick={handleChoose}>Модератор</li>
                 </ul>
             </div>
         </div>
